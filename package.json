@@ -1,6 +1,6 @@
 {
   "name": "create-multi-chrome",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "exports": {
     ".": {
@@ -9,6 +9,14 @@
       "require": "./dist/index.cjs"
     }
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sellerartifact/create-multi-chrome.git"
+  },
+  "keywords": [
+    "chrome",
+    "multi-chrome"
+  ],
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
