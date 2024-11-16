@@ -76,7 +76,10 @@ function prepare(options: ShortcutOptions | string): Required<ShortcutOptions> {
 
 function buildArgs(options: Required<ShortcutOptions>): readonly string[] {
   const filename = fileURLToPath(import.meta.url);
-  const dirname = path.dirname(filename);
+  let dirname = path.dirname(filename);
+  if (dirname.includes("app.asar")) {
+    dirname = dirname.replace("app.asar", "app.asar.unpacked");
+  }
   const scriptPath = path.join(dirname, "../scripts/createLink.vbs");
   return [
     scriptPath,
