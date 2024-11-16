@@ -1,6 +1,6 @@
 {
   "name": "create-multi-chrome",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "type": "module",
   "exports": {
     ".": {
@@ -26,7 +26,8 @@
   ],
   "scripts": {
     "build": "rslib build",
-    "dev": "rslib build --watch"
+    "dev": "rslib build --watch",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@rslib/core": "^0.0.18",

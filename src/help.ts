@@ -75,9 +75,9 @@ function prepare(options: ShortcutOptions | string): Required<ShortcutOptions> {
 }
 
 function buildArgs(options: Required<ShortcutOptions>): readonly string[] {
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-  const scriptPath = path.join(__dirname, "../scripts/createLink.vbs");
+  const filename = fileURLToPath(import.meta.url);
+  const dirname = path.dirname(filename);
+  const scriptPath = path.join(dirname, "../scripts/createLink.vbs");
   return [
     scriptPath,
     options.filepath,
