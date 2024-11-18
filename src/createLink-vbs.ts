@@ -1,13 +1,10 @@
-' lnk.vbs (c) 2018 Pedro Costa
-' This code is licensed under GPL-3.0 license (see LICENSE for details)
-option explicit
+export const vbsScripts = `option explicit
 
 dim strFilepath, strLinkFilepath, strLinkName, strLinkArgs, strLinkDescription, strLinkCwd, strLinkIcon, strLinkWindowMode, strLinkHotkey
 strFilepath = Wscript.Arguments(0)
 strLinkFilepath = Wscript.Arguments(1)
 strLinkName = Wscript.Arguments(2)
 strLinkArgs = Replace(Wscript.Arguments(3), "'", """")
-' WScript.Echo "strLinkArgs = " & strLinkArgs
 strLinkDescription = Wscript.Arguments(4)
 strLinkCwd = Wscript.Arguments(5)
 strLinkIcon = Wscript.Arguments(6)
@@ -29,3 +26,4 @@ objLink.WindowStyle = strLinkWindowMode
 objLink.WorkingDirectory = strLinkCwd
 objLink.Hotkey = strLinkHotkey
 objLink.Save
+`;

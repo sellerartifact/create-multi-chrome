@@ -1,6 +1,6 @@
 {
   "name": "create-multi-chrome",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "type": "module",
   "exports": {
     ".": {
@@ -21,8 +21,7 @@
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
-    "dist",
-    "scripts"
+    "dist"
   ],
   "scripts": {
     "build": "rslib build",

@@ -1,8 +1,7 @@
 import { spawn, spawnSync } from "child_process";
 import fs from "fs";
 import path from "path";
-import { fileURLToPath } from "url";
-
+import { vbsScripts } from "./createLink-vbs";
 export interface ShortcutOptions {
   /** the absolute path including the name of which file should the module make a shortcut (required). */
   filepath: string;
@@ -74,15 +73,19 @@ function prepare(options: ShortcutOptions | string): Required<ShortcutOptions> {
   return checkedOptions;
 }
 
-function buildArgs(options: Required<ShortcutOptions>): readonly string[] {
-  const filename = fileURLToPath(import.meta.url);
-  let dirname = path.dirname(filename);
-  if (dirname.includes("app.asar")) {
-    dirname = dirname.replace("app.asar", "app.asar.unpacked");
+function checkScriptIsExist() {
+  if (fs.existsSync("./createLink.vbs")) {
+    return true;
+  } else {
+    fs.writeFileSync("./createLink.vbs", vbsScripts);
+    return;
   }
-  const scriptPath = path.join(dirname, "../scripts/createLink.vbs");
+}
+
+function buildArgs(options: Required<ShortcutOptions>): readonly string[] {
+  checkScriptIsExist();
   return [
-    scriptPath,
+    "./createLink.vbs",
     options.filepath,
     options.linkFilepath,
     options.linkName,
